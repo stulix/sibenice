@@ -11,14 +11,16 @@ using System.IO;
 
 namespace sibenice
 {
+    
     public partial class Form1 : Form
     {
         public Form1()
         {
             InitializeComponent();
+            Singleton.GetSingleton();
             Hra hra = new Hra();
             hra.Start();
-
+            
         }
         
 
@@ -54,6 +56,21 @@ namespace sibenice
 
 
         }
+    }
+
+    public class Singleton
+    {
+        private Singleton()
+        {
+
+        }
+        private static readonly Singleton singleton = new Singleton();
+
+        public static Singleton GetSingleton()
+        {
+            return singleton;
+        }
+
     }
     public class Pismena: Hra
     {
